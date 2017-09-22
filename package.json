@@ -1,0 +1,16 @@
+{
+  "name": "clichat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-color": "^0.2.1",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
+  }
+}
