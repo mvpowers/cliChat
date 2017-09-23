@@ -5,7 +5,7 @@ color = require("ansi-color").set;
  
  
 var nick;
-var socket = socketio.connect('localhost', { port: 3636 });
+var socket = socketio.connect('http://localhost:3636');
 var rl = readline.createInterface(process.stdin, process.stdout);
 
 // Set the username
@@ -46,10 +46,11 @@ function chat_command(cmd, arg) {
             break;
  
         case 'msg':
-            var to = arg.match(/[a-z]+\b/)[0];
-            var message = arg.substr(to.length, arg.length);
-            socket.emit('send', { type: 'tell', message: message, to: to, from: nick });
-            break;
+						var to = arg.match(/[a-zA-Z]+\b/)[0];
+						var message = arg.substr(to.length, arg.length);
+						socket.emit('send', { type: 'tell', message: message, to: to, from: nick });
+						rl.prompt(true);
+						break;
  
         case 'me':
             var emote = nick + " " + arg;
